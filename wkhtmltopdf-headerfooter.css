@@ -1,0 +1,5 @@
+/* Applies to the header and footer */
+	body				{border: 0; margin: 0;}
+	td					{font-family: sans-serif; color: #282828;}
+	body.header table	{border-bottom: 1px solid #282828; width: 100%;}
+	body.footer table	{border-top: 1px solid #282828; width: 100%;}
