@@ -84,6 +84,8 @@ wk.loaddatafile = function(success, error){
 			success:	success, 
 			error:		error
 		});
+	} else {
+		error(null, 'the cookie "datafile" is not set', null);
 	}
 };
 function readCookie(name) {
