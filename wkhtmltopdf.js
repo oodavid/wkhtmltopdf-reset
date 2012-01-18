@@ -60,11 +60,14 @@ wk.table = function(){
 //
 $(window).load(function(e){
 	// Figure out the page-size
-	var klass = $('body').attr('class').split(' ');
-	if(klass.length > 1) {
-		var size = klass[0] + '-' + klass[1];
-		if(wk.page_sizes[size]){
-			wk.page = wk.page_sizes[size];
+	var klass = $('body').attr('class');
+	if(klass) {
+		klass = klass.split(' ');
+		if(klass.length > 1) {
+			var size = klass[0] + '-' + klass[1];
+			if(wk.page_sizes[size]){
+				wk.page = wk.page_sizes[size];
+			}
 		}
 	}
 	// Trigger the table-fix

@@ -17,24 +17,28 @@
 
 /* Generally speaking */
 	body {font-size: 10px; font-family: sans-serif; color: #282828;}
-	/* Block elements - keep them to a page each and attempt to prevent them triggering "zooming" (when the content is too wide) */
-		p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset, figure {overflow: hidden; word-wrap: break-word; page-break-inside: avoid; page-break-after: auto;}
 	/* Tweak the margins so that elements look good when flowing onto the next page */
-		p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset, figure {padding-top: 5px; padding-bottom: 5px; margin: 0;}
+		p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset, figure {padding-top: 5px; padding-bottom: 5px; margin: 0; overflow: hidden; word-wrap: break-word;}
 	/* Pre tags should wrap */
 		pre {white-space: pre-wrap; background: #282828; color: #FFFFFF;}
-	/* Handy styles */
-		.clear		{clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0;}
-		.pagebreak	{page-break-before: always!important;}
 
-/* Printable pages */
-	.wk-page {page-break-before: always; page-break-after: always; border-top: 2px solid #FFFFFF; background: #F5F5F5; overflow: hidden;}
+/* Pages */
+	.wk-page {page-break-before: always; page-break-inside: avoid; page-break-after: always; border-top: 2px solid #FFFFFF; background: #F5F5F5; overflow: hidden;}
+	/* Elements should NOT try and break the page */
+		.wk-page img {/* I haven't figured this one out yet */}
 	/* Different print sizes */
 		body.a4.landscape			{width: 900px;}
 		body.a4.landscape .wk-page	{height: 613px;}
 	/* Different print sizes */
 		body.a4.portrait			{width: 613px;}
 		body.a4.portrait .wk-page	{height: 895px;}
+
+/* HTML */
+	/* Block elements should try and break in a normal manner */
+		.wk-html p, .wk-html dl, .wk-html hr, .wk-html h1, .wk-html h2, .wk-html h3, .wk-html h4, .wk-html h5, .wk-html h6, .wk-html ol, .wk-html ul, .wk-html pre, .wk-html table, .wk-html address, .wk-html fieldset, .wk-html figure {page-break-inside: avoid; page-break-after: auto;}
+	/* Handy styles */
+		.clear		{clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0;}
+		.pagebreak	{page-break-before: always!important;}
 
 /* "Hidden" Titles */
  .wk-hiddentitle {color: #FFFFFF; font-size: 1px; line-height: 1px; height: 1px; margin: -1px 0 0 0; padding: 0;}
