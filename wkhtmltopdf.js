@@ -101,3 +101,13 @@ function readCookie(name) {
 	}
 	return null;
 };
+//
+// Convert regular paths to an absolute path
+//
+wk.base = false;
+wk.abspath = function(path){
+	// Make sure the base is in place
+	wk.base = wk.base || readCookie('base');
+	// Convert and return
+	return wk.base + path;
+};
