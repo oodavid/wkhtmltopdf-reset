@@ -2,29 +2,43 @@
 <html>
 <head>
 	<!-- The reset -->
-	<link rel="stylesheet" href="wkhtmltopdf-headerfooter.css" />
+	<link rel="stylesheet" href="../wkhtmltopdf-reset/wkhtmltopdf-headerfooter.css" />
 	<!-- Customisation -->
 	<script>
 		// Taken from wkhtmltopdf extended help (use the -H flag)
+		//  modified to give us access to all the variables
 		function subst() {
-			var vars={};
-			var x=document.location.search.substring(1).split('&');
-			for (var i in x) {var z=x[i].split('=',2);vars[z[0]] = unescape(z[1]);}
-				var x=['frompage','topage','page','webpage','section','subsection','subsubsection'];
-				for (var i in x) {
-				var y = document.getElementsByClassName(x[i]);
-				for (var j=0; j<y.length; ++j) y[j].textContent = vars[x[i]];
+			// Split up the GET parameters
+			var params = {};
+			var gets = document.location.search.substring(1).split('&');
+			for (var g=0; g<gets.length; ++g) {
+				// Split into name and value
+				var tmp			= gets[g].split('=', 2);
+				var name		= tmp[0];
+				var value		= unescape(tmp[1]);
+				params[name]	= value;
+				// Find any element with a class that matches that name and inject the value
+				var els = document.getElementsByClassName(name);
+				for (var e=0; e<els.length; ++e) {
+					els[e].textContent = value;
+				}
+			}
+			// If this is page one, skip the header
+			if(params['page'] == 1){
+				var el = document.getElementById("header");
+				if(el){
+					el.parentNode.removeChild(el);
+				}
 			}
 		}
 	</script>
 </head>
-<body class="footer" onload="subst()">
-	<table>
+<body onload="subst()">
+	<table id="footer">
 		<tr>
+			<td>Lucion Environmental Limited</td>
 			<td class="section"></td>
-			<td class="subsection"></td>
-			<td class="subsubsection"></td>
-			<td style="text-align:right">Page <span class="page"></span> of <span class="topage"></span></td>
+			<td style="text-align: right;">Page <span class="page"></span> of <span class="topage"></span></td>
 		</tr>
 	</table>
 </body>

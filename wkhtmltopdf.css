@@ -23,7 +23,7 @@
 		pre {white-space: pre-wrap; background: #282828; color: #FFFFFF;}
 
 /* Pages */
-	.wk-page {page-break-before: always; page-break-inside: avoid; page-break-after: always; border-top: 2px solid #FFFFFF; background: #F5F5F5; overflow: hidden;}
+	.wk-page {page-break-before: always; page-break-inside: avoid; page-break-after: always; border-top: 2px solid #FFFFFF; overflow: hidden;}
 	/* Elements should NOT try and break the page */
 		.wk-page img {/* I haven't figured this one out yet */}
 	/* Different print sizes */
