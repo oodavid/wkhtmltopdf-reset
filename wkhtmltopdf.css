@@ -31,7 +31,7 @@
 		body.a4.landscape .wk-page	{height: 613px;}
 	/* Different print sizes */
 		body.a4.portrait			{width: 613px;}
-		body.a4.portrait .wk-page	{height: 895px;}
+		body.a4.portrait .wk-page	{height: 893px;}
 
 /* HTML */
 	/* Block elements should try and break in a normal manner */
@@ -44,7 +44,7 @@
  .wk-hiddentitle {color: #FFFFFF; font-size: 1px; line-height: 1px; height: 1px; margin: -1px 0 0 0; padding: 0;}
 
 /* Tables */
-	table		{margin-left: 0; margin-right: 0; border-collapse: collapse;}
+	table		{width: 100%; margin-left: 0; margin-right: 0; border-collapse: collapse;}
 	table td,
 	table th	{background: #F5F5F5; padding: 3px; border: 2px solid #FFFFFF; text-align: left; vertical-align: top;}
 	table th	{background: #282828; color: #FFFFFF; font-weight: bold;}

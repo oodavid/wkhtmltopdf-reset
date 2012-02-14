@@ -13,9 +13,10 @@
 
 wk = {};
 wk.page_sizes = {
-	'a4-landscape':	{ width: 900, height: 615 },
-	'a4-portrait':	{ width: 615, height: 895 },
+	'a4-landscape':	{ width: 900, height: 613 },
+	'a4-portrait':	{ width: 613, height: 893 },
 };
+// Default to landscape
 wk.page = wk.page_sizes['a4-landscape'];
 //
 // Automatically breaks up tables...
