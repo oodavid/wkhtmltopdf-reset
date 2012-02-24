@@ -108,7 +108,11 @@ function readCookie(name) {
 wk.base = false;
 wk.abspath = function(path){
 	// Make sure the base is in place
-	wk.base = wk.base || readCookie('base');
+	if(!wk.base && readCookie('base')){
+		wk.base = readCookie('base');
+	} else {
+		wk.base = '';
+	}
 	// Convert and return
 	return wk.base + path;
 };
